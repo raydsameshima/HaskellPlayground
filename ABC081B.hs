@@ -12,7 +12,7 @@ False
 
 main :: IO ()
 main = do
-  n <- getLine
+  _ <- getLine
   as <- map read . words <$> getLine
   print $ counter as
 
