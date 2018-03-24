@@ -4,6 +4,7 @@ Experiments of Haskell programming.
 AtCoder.
 
 # IO
+## fixed number of inputs
 For the following type of inputs
 
 ```
@@ -20,6 +21,25 @@ main = do
   ...
 ```
 
+## non-fixed number of inputs
+If the input is 
+
+```hs
+n   -- the total number of the follwoing data
+d1  -- 1 st data
+...
+dn  -- n th data
+```
+
+use
+
+```hs
+import Control.Monad (replicateM)
+
+main = do
+  n  <- readLn
+  ds <- replicateM n readLn
+```
 
 # Usefull links
 ## Category Theory for Programmers
