@@ -21,7 +21,7 @@ f n a b = sum [ m | m <- [1..n]
                   , a   <= g m
                   , g m <= b]
   where
-    g = sumDigits'
+    g = sumDigits''
 
 sumDigits, sumDigits' 
   :: Int -> Int
@@ -36,5 +36,13 @@ https://qiita.com/hsjoihs/items/25a08b426196ab2b9bb0#5問目-abc083b-some-sums
 -}
 
 sumDigits' k = sum [read [c] | c <- show k]
+
+sumDigits'' k = helper k 0
+  where
+    helper 0 b = b
+    helper a b = if ( 0 < a && a < 10)
+                    then a+b
+                    else helper (a `quot` 10) (b + a `rem` 10)
+
 
                   
