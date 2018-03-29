@@ -5,13 +5,8 @@ https://beta.atcoder.jp/contests/abs/tasks/abc086_a
 
 main :: IO ()
 main = do
-  [a,b] <- toListOfInt
+  [a,b] <- map read . words <$> getLine
   putStrLn $ oddOrEven' a b
-
--- To read spaced inputs.
-toListOfInt 
-  :: Read b => IO [b]
-toListOfInt = map read . words <$> getLine
 
 oddOrEven'
   :: Int -> Int -> String
