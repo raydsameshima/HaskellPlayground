@@ -7,10 +7,13 @@ import Data.List
 
 main :: IO ()
 main = do
-  [_,m] <- map read . words <$> getLine
-  abs   <- replicateM m $ map read . words <$> getLine
-  mapM_ print $ honsu abs 
+  [n,m] <- map read . words <$> getLine
+  abs   <- replicateM m $ map read . words <$> getLine 
+  mapM_ print $ honsu n abs
 
 honsu
-  :: [[Int]] -> [Int]
-honsu = map length . group . sort . concat
+  :: Int -> [[Int]] -> [Int]
+honsu n as = map length' . group . sort . concat $ ([1..n] : as)
+  where
+    length' l = length l - 1
+
