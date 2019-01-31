@@ -51,3 +51,10 @@ main = do
 ## ABC 086 A - Product
 [abc086_a](https://atcoder.jp/contests/abc086/tasks/abc086_a)
 
+
+### Related problems
+[abc064_a](https://atcoder.jp/contests/abc064/tasks/abc064_a)
+
+
+
+
