@@ -58,7 +58,19 @@ See, again
 
 ### Related problems
 [abc064_a](https://atcoder.jp/contests/abc064/tasks/abc064_a)
+[abc088_a](https://atcoder.jp/contests/abc088/tasks/abc088_a)
+[abc082_a](https://atcoder.jp/contests/abc082/tasks/abc082_a)
 
+### Note
+As a common technique, e.g., if we want to calculate the round up the mean of a,b::Int,
+  (a+b+1) `div` 2
+that is, we do not need to write
 
+```hs
+  kiriage a b
+    | even (a+b) = (a+b)   `div` 2
+    | otherwise  = (a+b+1) `div` 2 
+```
+  
 
 
