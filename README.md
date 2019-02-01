@@ -48,6 +48,10 @@ main = do
 [Category Theory for Programmers: The Preface](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
 
 # 10 types of problems
+See, again
+[A good reference in Japanse](https://qiita.com/drken/items/fd4e5e3630d0f5859067#5-%E9%81%8E%E5%8E%BB%E5%95%8F%E7%B2%BE%E9%81%B8-10-%E5%95%8F)
+
+
 ## ABC 086 A - Product
 [abc086_a](https://atcoder.jp/contests/abc086/tasks/abc086_a)
 
