@@ -1,10 +1,21 @@
-{- PracticeA.lhs
+{- ABC081A.hs
 
-https://beta.atcoder.jp/contests/abs/tasks/abc081_a?lang=en
+Given three digits 
+  s1s2s3
+of either 0 or 1, count the number of 1 in this input.
+  
+
+Note
+  getLine :: IO String
+
 -}
 
-main :: IO ()
+main
+  :: IO ()
 main = do
   s <- getLine
-  let n = length . filter (=='1') $ s
-  print n
+  print . count1 $ s 
+
+count1
+  :: String -> Int
+count1 = length . filter (=='1')

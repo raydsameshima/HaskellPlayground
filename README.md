@@ -55,6 +55,7 @@ See, again
 ## ABC 086 A - Product
 [abc086_a](https://atcoder.jp/contests/abc086/tasks/abc086_a)
 
+Mod, or rem.
 
 ### Related problems
 [abc064_a](https://atcoder.jp/contests/abc064/tasks/abc064_a)
@@ -63,8 +64,12 @@ See, again
 
 ### Note
 As a common technique, e.g., if we want to calculate the round up the mean of a,b::Int,
+
+```hs
   (a+b+1) `div` 2
-that is, we do not need to write
+```
+
+that is, we do not need to write like
 
 ```hs
   kiriage a b
@@ -72,5 +77,13 @@ that is, we do not need to write
     | otherwise  = (a+b+1) `div` 2 
 ```
   
+## ABC 081 A - Placing Marbles
+[abc081_a](https://atcoder.jp/contests/abc081/tasks/abc081_a)
 
+Brute-force search.
 
+### Related problems
+[abc095_a](https://atcoder.jp/contests/abc095/tasks/abc095_a)
+[abc085_a](https://atcoder.jp/contests/abc085/tasks/abc085_a)
+[abc069_b](https://atcoder.jp/contests/abc069/tasks/abc069_b)
+[abc082_b](https://atcoder.jp/contests/abc082/tasks/abc082_b)

@@ -1,4 +1,13 @@
-{- ABC082B.hs -}
+{- ABC082B.hs 
+
+Given strings
+  s
+  t
+determine whether
+  s < t
+for the lex order.
+
+-}
 
 import Data.List
   ( sort, sortBy )

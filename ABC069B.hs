@@ -1,5 +1,10 @@
-{-
-ABC069B.hs
+{- ABC069B.hs
+
+Abbreviate 
+  s :: String
+in such a way that
+  internationalization -> i18n
+.
 
 -}
 
@@ -15,4 +20,3 @@ shorten s = i : (show n) ++ [f]
     i = head s
     f = last s
     n = length s - 2
-
