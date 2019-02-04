@@ -87,3 +87,6 @@ Brute-force search.
 [abc085_a](https://atcoder.jp/contests/abc085/tasks/abc085_a)
 [abc069_b](https://atcoder.jp/contests/abc069/tasks/abc069_b)
 [abc082_b](https://atcoder.jp/contests/abc082/tasks/abc082_b)
+
+## ABC 081 B - Shift Only
+[abc081_b](https://atcoder.jp/contests/abc081/tasks/abc081_b)

@@ -26,3 +26,4 @@ counter ns = helper ns 0
       | otherwise         = k
       where
         ms' = map (`div` 2) ms
+
