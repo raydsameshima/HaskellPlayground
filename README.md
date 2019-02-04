@@ -56,6 +56,8 @@ See, again
 [abc086_a](https://atcoder.jp/contests/abc086/tasks/abc086_a)
 
 Mod, or rem.
+For non-negative integers, use rem.
+(see [https://twitter.com/mod_poppo/status/1092144670526791680](https://twitter.com/mod_poppo/status/1092144670526791680))
 
 ### Related problems
 [abc064_a](https://atcoder.jp/contests/abc064/tasks/abc064_a)
@@ -90,3 +92,8 @@ Brute-force search.
 
 ## ABC 081 B - Shift Only
 [abc081_b](https://atcoder.jp/contests/abc081/tasks/abc081_b)
+
+For loop
+
+### Related problems
+[abc068_b](https://atcoder.jp/contests/abc068/tasks/abc068_b)
