@@ -1,5 +1,8 @@
-{- 
-ABC053B.hs 
+{- ABC053B.hs 
+
+Given
+  s
+of string, find a pattern starts from 'A', and ends 'Z'.
 
 *Main> let s = "QWERTYASDFZXCV"
 *Main> dropWhile (/='A') s
@@ -10,12 +13,13 @@ ABC053B.hs
 5
 -}
 
+import qualified Data.ByteString.Char8 as C
+
 main :: IO ()
 main = do
-  s <- getLine
+  s <- C.getLine
   print $ a2z s
 
-a2z
-  :: String -> Int
-a2z = length . dropWhile (/='Z') . reverse . dropWhile (/='A') 
+a2z :: C.ByteString -> Int
+a2z = C.length . C.dropWhile (/='Z') . C.reverse . C.dropWhile (/='A') 
 
