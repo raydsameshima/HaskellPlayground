@@ -43,6 +43,11 @@ main = do
   ds <- replicateM n readLn
 ```
 
+## Data.ByteString.Char8
+See the discussion in 
+[Data.Text vs Data.ByteString.Char8](https://stackoverflow.com/questions/8916107/data-text-vs-data-bytestring-char8)
+
+
 # Usefull links
 ## Category Theory for Programmers
 [Category Theory for Programmers: The Preface](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
