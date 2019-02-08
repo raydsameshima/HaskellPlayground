@@ -146,6 +146,10 @@ Dynamic Programming (DP) algorithm
 
 [How is Dynamic programming different from Brute force](https://cs.stackexchange.com/questions/23599/how-is-dynamic-programming-different-from-brute-force)
 
+### Related problems
+[abc105_b](https://atcoder.jp/contests/abc105/tasks/abc105_b)
 
+[arc004_1](https://arc004.contest.atcoder.jp/tasks/arc004_1)
 
+[abc051_b](https://atcoder.jp/contests/abc051/tasks/abc051_b)
 

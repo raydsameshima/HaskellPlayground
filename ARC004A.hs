@@ -1,4 +1,6 @@
-{- ARC004A.hs -}
+{- ARC004A.hs
+
+-}
 
 import Control.Monad
   ( replicateM )
@@ -11,7 +13,8 @@ main = do
 
 type Pair = (Int, Int)
 
-readPair :: IO Pair
+readPair
+  :: IO Pair
 readPair = do
   [x,y] <- map read . words <$> getLine
   return (x,y)
