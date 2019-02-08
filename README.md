@@ -47,6 +47,29 @@ main = do
 See the discussion in 
 [Data.Text vs Data.ByteString.Char8](https://stackoverflow.com/questions/8916107/data-text-vs-data-bytestring-char8)
 
+Instead of using
+
+```hs
+main = do
+  as <- map read . words <$> getLine
+  ...
+
+```
+
+we may use Data.ByteString.Char8:
+
+```hs
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+getParm :: IO [Int]
+getParm = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+
+main = do
+  as <- getParm
+  ...
+
+```
 
 # Usefull links
 ## Category Theory for Programmers
