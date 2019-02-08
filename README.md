@@ -138,3 +138,14 @@ For loop
 [abc053_b](https://atcoder.jp/contests/abc053/tasks/abc053_b)
 
 [abc095_b](https://atcoder.jp/contests/abc095/tasks/abc095_b)
+
+## ABC 087 B - Coins
+[abc087_b](https://atcoder.jp/contests/abc087/tasks/abc087_b)
+
+Dynamic Programming (DP) algorithm
+
+[How is Dynamic programming different from Brute force](https://cs.stackexchange.com/questions/23599/how-is-dynamic-programming-different-from-brute-force)
+
+
+
+

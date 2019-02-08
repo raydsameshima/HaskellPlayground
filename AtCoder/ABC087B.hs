@@ -1,7 +1,6 @@
 {-
 ABC087B.hs
 
-
 -}
 
 main :: IO ()
