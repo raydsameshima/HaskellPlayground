@@ -2,6 +2,8 @@
 
 -}
 
+import qualified Data.ByteString.Char8 as C
+
 main :: IO ()
 main = do
   [a,b] <- map read . words <$> getLine
@@ -9,12 +11,10 @@ main = do
 
 numOfPlndrm
   :: Int -> Int -> Int
-numOfPlndrm a b = length . filter id . map isP $ [a .. b]
+numOfPlndrm a b = length $ filter isP [a .. b]
 
 isP 
   :: Int -> Bool
-isP n = n == revInt n
-
-revInt
-  :: Int -> Int
-revInt = read . reverse . show
+isP n = c == C.reverse c
+  where
+    c = C.pack $ show n
