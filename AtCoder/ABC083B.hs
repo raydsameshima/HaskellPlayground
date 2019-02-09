@@ -29,4 +29,5 @@ int2lst n
   | q == 0 = [r]
   | otherwise = r: int2lst q
   where
-    (q,r) = quotRem n 10
+--    (q,r) = quotRem n 10
+    (q,r) = divMod n 10
