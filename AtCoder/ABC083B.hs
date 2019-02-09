@@ -1,15 +1,15 @@
-{-
-ABC083B.hs
+{- ABC083B.hs
 
-*Main> let n = 113
-*Main> let s = show n :: String
-*Main> map Data.Char.digitToInt s
-[1,1,3]
-*Main> sum it
-5
+*Main Turtle> quotRem 1234 10
+(123,4)
+*Main Turtle> quotRem (fst it) 10
+(12,3)
+*Main Turtle> quotRem (fst it) 10
+(1,2)
+*Main Turtle> quotRem (fst it) 10
+(0,1)
+
 -}
-
-import Data.Char (digitToInt)
 
 main :: IO ()
 main = do
@@ -19,30 +19,14 @@ main = do
 f :: Int -> Int -> Int -> Int
 f n a b = sum [ m | m <- [1..n]
                   , a   <= g m
-                  , g m <= b]
+                  , g m <= b ]
   where
-    g = sumDigits''
+    g = sum . int2lst
 
-sumDigits, sumDigits' 
-  :: Int -> Int
-sumDigits = sum . map digitToInt . show -- 2 ms, 892 KB
-
-{-
-from 
-https://qiita.com/hsjoihs/items/25a08b426196ab2b9bb0#5問目-abc083b-some-sums
-
-95 ms
-1020 KB
--}
-
-sumDigits' k = sum [read [c] | c <- show k]
-
-sumDigits'' k = helper k 0
+int2lst
+  :: Int -> [Int]
+int2lst n
+  | q == 0 = [r]
+  | otherwise = r: int2lst q
   where
-    helper 0 b = b
-    helper a b = if ( 0 < a && a < 10)
-                    then a+b
-                    else helper (a `quot` 10) (b + a `rem` 10)
-
-
-                  
+    (q,r) = quotRem n 10
