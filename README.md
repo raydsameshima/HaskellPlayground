@@ -130,12 +130,15 @@ For loop
 [abc068_b](https://atcoder.jp/contests/abc068/tasks/abc068_b)
 
 [abc102_b](https://atcoder.jp/contests/abc102/tasks/abc102_b)
+Data.ByteString.Char8
 
 [abc113_b](https://atcoder.jp/contests/abc113/tasks/abc113_b)
+Data.ByteString.Char8
 
 [abc072_b](https://atcoder.jp/contests/abc072/tasks/abc072_b)
 
 [abc053_b](https://atcoder.jp/contests/abc053/tasks/abc053_b)
+Data.ByteString.Char8
 
 [abc095_b](https://atcoder.jp/contests/abc095/tasks/abc095_b)
 
@@ -156,4 +159,14 @@ Dynamic Programming (DP) algorithm
 ## ABC083 B - Some Sums
 [abc083_b](https://atcoder.jp/contests/abc083/tasks/abc083_b)
 
+Integers (decimal numbers) and for loop.
+
+### Related problems
+[abc080_b](https://atcoder.jp/contests/abc080/tasks/abc080_b)
+
+[abc090_b](https://beta.atcoder.jp/contests/abc090/tasks/abc090_b)
+
+[agc025_a](https://beta.atcoder.jp/contests/agc025/tasks/agc025_a)
+Vector performs well.
+Indeed, the interface is easy and clear.
 
