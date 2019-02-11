@@ -7,26 +7,34 @@ of integers, let us spread x candies in n kids, where i-th kid is happy
 when receives ai candies.
 Find the maximum possible number of happy kids.
 
+If 
+  sum [a1 .. an] < x
+holds, then we can provide all the kids but one with perfect satisfaction.
+
 -}
 
-import Control.Monad (replicateM )
-import Data.List (minimum, scanl', sort, sortBy)
-import qualified Data.Vector.Unboxed as U
+import qualified Data.ByteString.Char8 as C
+import Data.List ( sort )
+import Data.Maybe ( fromJust )
+
+getParm
+  :: IO [Int]
+getParm = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  [n,x] <- map read . words <$> getLine 
-  as    <- map read . words <$> getLine
+  [n,x] <- getParm
+  as    <- getParm
   print $ f n x as
 
 f :: Int -> Int -> [Int] -> Int
 f n x as
-  | x < minas = 0
-  | x <= sas  = U.length $ U.takeWhile (<= x) $ U.scanl1 (+) as'
-  | x < 2*sas = U.length $ U.takeWhile (<= (2*sas - x)) $ U.scanl1 (+) sa
+  | t < x     = n-1
+  | k <= n    = k   
   | otherwise = 0
   where
-    minas = U.minimum $ U.fromList as
-    sas = sum as
-    as' = U.fromList $ sort as
-    sa  = U.reverse as' 
+    t = sum as 
+    lengthUpto x = length . takeWhile (<= x) 
+    k = lengthUpto x sums
+    sums = scanl1 (+) as'
+    as' = sort as

@@ -179,3 +179,6 @@ Sorts, Greedy
 
 [abc042_b](https://beta.atcoder.jp/contests/abc042/tasks/abc042_b)
 Data.ByteString.Char8
+
+[agc027_a](https://atcoder.jp/contests/agc027/tasks/agc027_a)
+Data.ByteString.Char8
