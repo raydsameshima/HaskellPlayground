@@ -9,7 +9,7 @@ Find the maximum possible number of happy kids.
 
 -}
 
-import Control.Monad (replicateM)
+import Control.Monad (replicateM )
 import Data.List (minimum, scanl', sort, sortBy)
 import qualified Data.Vector.Unboxed as U
 
