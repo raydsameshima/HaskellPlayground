@@ -1,16 +1,20 @@
 {- ABC042B.hs -}
 
-import Control.Monad
-  ( replicateM )
-import Data.List
-  ( sort )
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+import Control.Monad ( replicateM )
+import qualified Data.List as L ( sort )
+
+
+getParm :: IO [Int]
+getParm = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  [n,l] <- map read . words <$> getLine
-  ss    <- replicateM n getLine
-  putStrLn $ minimumCombination ss
+  [n,_] <- getParm
+  ss    <- replicateM n C.getLine
+  C.putStrLn $ minimumCombination ss 
 
-minimumCombination
-  :: [String] -> String
-minimumCombination = concat . sort
+minimumCombination 
+ :: [C.ByteString] -> C.ByteString
+minimumCombination = C.concat . L.sort

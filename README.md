@@ -176,3 +176,6 @@ Sorts, Greedy
 
 ### Related problems
 [abc067_b](https://atcoder.jp/contests/abc067/tasks/abc067_b)
+
+[abc042_b](https://beta.atcoder.jp/contests/abc042/tasks/abc042_b)
+Data.ByteString.Char8
