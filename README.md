@@ -170,3 +170,8 @@ Integers (decimal numbers) and for loop.
 Vector performs well.
 Indeed, the interface is easy and clear.
 
+## ABC 088 B - Card Game for Two
+
+Sorts, Greedy
+
+### Related problems
