@@ -1,4 +1,6 @@
-{- ABC067B.hs -}
+{- ABC067B.hs 
+
+-}
 
 import Data.List
   ( sortBy )

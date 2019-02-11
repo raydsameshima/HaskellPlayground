@@ -175,3 +175,4 @@ Indeed, the interface is easy and clear.
 Sorts, Greedy
 
 ### Related problems
+[abc067_b](https://atcoder.jp/contests/abc067/tasks/abc067_b)
