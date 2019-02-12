@@ -21,8 +21,6 @@ that is, we can take N-elements in even indexes from the decending (sorted) list
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 import Data.List ( sortBy )
-import qualified Data.Vector.Unboxed as U
-
 
 getParm :: IO [Int]
 getParm = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
@@ -43,6 +41,3 @@ h :: [Int] -> Int -> Int -> Int
 h _        0 acc = acc
 h (_:b:bs) n acc = h bs (n-1) (b+acc)
 
---    ass' = sort' ass
-
--- g n = U.sum . f n
