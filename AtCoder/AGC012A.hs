@@ -40,4 +40,3 @@ f n ass = h (sort' ass) n 0
 h :: [Int] -> Int -> Int -> Int
 h _        0 acc = acc
 h (_:b:bs) n acc = h bs (n-1) (b+acc)
-
