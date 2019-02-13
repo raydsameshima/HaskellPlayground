@@ -5,6 +5,8 @@ AtCoder.
 See 
 [A good reference in Japanse](https://qiita.com/drken/items/fd4e5e3630d0f5859067#5-%E9%81%8E%E5%8E%BB%E5%95%8F%E7%B2%BE%E9%81%B8-10-%E5%95%8F)
 
+[AtCoder Beginners Selection](https://atcoder.jp/contests/abs)
+
 # IO
 ## fixed number of inputs
 For the following type of inputs
@@ -59,14 +61,18 @@ main = do
 we may use Data.ByteString.Char8:
 
 ```hs
+
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 
-getParm :: IO [Int]
-getParm = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+cReadLn :: IO Int
+cReadLn = fst . fromJust . C.readInt <$> C.getLine
+
+getParms :: IO [Int]
+getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main = do
-  as <- getParm
+  as <- getParms
   ...
 
 ```
@@ -187,6 +193,7 @@ Data.ByteString.Char8
 Data.ByteString.Char8
 
 
-
 ## ABC 085 B - Kagami Mochi
+[abc085_b](https://atcoder.jp/contests/abc085/tasks/abc085_b)
+Data.ByteString.Char8
 
