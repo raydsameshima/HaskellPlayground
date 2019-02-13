@@ -7,7 +7,7 @@ import qualified Data.ByteString.Char8 as B
 main :: IO ()
 main = do
   s <- B.getLine
-  B.putStrLn . toString . none' $ s
+  putStrLn . toString . none' $ s
 
 none'
   :: B.ByteString -> Maybe Char
@@ -18,6 +18,6 @@ none' x
     fx = B.dropWhile (`B.elem` x) $ B.pack ['a' .. 'z']
 
 toString
-  :: Maybe Char -> B.ByteString
-toString (Just c) = B.singleton c
-toString Nothing  = B.pack "None"
+  :: Maybe Char -> String
+toString (Just c) = [c]
+toString Nothing  = "None"
