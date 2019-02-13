@@ -14,11 +14,14 @@ cReadLn = fst . fromJust . C.readInt <$> C.getLine
 getParms :: IO [Int]
 getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
-mochi
-  :: [Int] -> Int
-mochi = length . nub . sort
-
+main :: IO ()
 main = do
   n <- cReadLn
   ds <- replicateM n cReadLn
   print $ mochi ds
+
+mochi
+  :: [Int] -> Int
+mochi = length . nub . sort
+
+
