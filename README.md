@@ -197,3 +197,7 @@ Data.ByteString.Char8
 [abc085_b](https://atcoder.jp/contests/abc085/tasks/abc085_b)
 Data.ByteString.Char8
 
+### Related problems
+[abc071_b](https://atcoder.jp/contests/abc071/tasks/abc071_b)
+Data.ByteString.Char8
+

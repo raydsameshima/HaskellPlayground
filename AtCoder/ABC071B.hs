@@ -1,19 +1,23 @@
-{- ABC071B.hs -}
+{- ABC071B.hs
+
+-}
+
+import qualified Data.ByteString.Char8 as B
 
 main :: IO ()
 main = do
-  s <- getLine
-  putStrLn . toString . none' $ s
+  s <- B.getLine
+  B.putStrLn . toString . none' $ s
 
 none'
-  :: String -> Maybe Char
+  :: B.ByteString -> Maybe Char
 none' x 
-  = if null fx then Nothing
-               else Just $ head fx
+  = if B.null fx then Nothing
+                 else Just $ B.head fx
   where
-    fx = dropWhile (`elem` x) ['a' .. 'z']
+    fx = B.dropWhile (`B.elem` x) $ B.pack ['a' .. 'z']
 
 toString
-  :: Maybe Char -> String
-toString (Just c) = [c]
-toString Nothing  = "None"
+  :: Maybe Char -> B.ByteString
+toString (Just c) = B.singleton c
+toString Nothing  = B.pack "None"
