@@ -201,3 +201,5 @@ Data.ByteString.Char8
 [abc071_b](https://atcoder.jp/contests/abc071/tasks/abc071_b)
 Data.ByteString.Char8
 
+[abc061_b](https://atcoder.jp/contests/abc061/tasks/abc061_b)
+Data.ByteString.Char8
