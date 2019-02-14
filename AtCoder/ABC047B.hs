@@ -16,25 +16,27 @@ main :: IO ()
 main = do
   [w,h,n] <- getParms              :: IO [Int]
   xya     <- replicateM n getParms :: IO [[Int]]
-  print $ area $ f w h xya
+  print $ uncurry area $ f w h xya
+
+type Range = (Int,Int)
 
 initialize
-  :: Int -> Int -> ([Int],[Int])
-initialize w h = ([0 .. w-1], [0 .. h-1])
+  :: Int -> Int -> (Range, Range)
+initialize w h = ((0, w), (0, h))
 
-cut :: ([Int],[Int]) -> [Int] -> ([Int], [Int])
-cut (xs,ys) [x,y,a]
-  | a == 1 = (xs1, ys)
-  | a == 2 = (xs2, ys)
-  | a == 3 = (xs,  ys3)
-  | a == 4 = (xs,  ys4)
-  where
-    xs1 = dropWhile (< x) xs
-    xs2 = takeWhile (< x) xs
-    ys3 = dropWhile (< y) ys
-    ys4 = takeWhile (< y) ys
+cut :: (Range, Range) -> [Int] -> (Range, Range) 
+cut (xx@(xi,xf),yy@(yi,yf)) [x,y,a]
+  | a == 1 = ((max x xi, xf), yy)
+  | a == 2 = ((xi, min x xf), yy)
+  | a == 3 = (xx, (max y yi, yf))
+  | a == 4 = (xx, (yi, min y yf))
 
-f :: Int -> Int -> [[Int]] -> ([Int], [Int])
+f :: Int -> Int -> [[Int]] -> (Range, Range)
 f w h = foldl cut (initialize w h) 
 
-area (xs,ys) = length xs * length ys
+area :: Range -> Range -> Int
+area (xi,xf) (yi,yf) 
+  | xi < xf && yi < yf = (xf-xi)*(yf-yi)
+  | otherwise          = 0
+
+ 
