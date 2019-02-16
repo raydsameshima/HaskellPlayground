@@ -26,11 +26,11 @@ f n k as
   where
     as'  = group . sort $ as
     l    = length as'
-    as'' = sortOn length as'
+    as'' = map length $ sortOn length as'
 
-    g :: [[Int]] -> Int -> Int -> Int
+    g :: [Int] -> Int -> Int -> Int
     g _      0 x = x
-    g (b:bs) k x = g bs (k-1) (x + length b)
+    g (b:bs) k x = g bs (k-1) (x + b)
 
 
 
