@@ -206,3 +206,10 @@ Data.ByteString.Char8
 
 [abc091_b](https://atcoder.jp/contests/abc091/tasks/abc091_b)
 Data.ByteString.Char8
+
+[arc086_a](https://atcoder.jp/contests/abc081/tasks/arc086_a)
+Data.ByteString.Char8
+
+Note: my implementation uses only List as the data structure.
+The execution time is so far beyond ok line, but some additional factor may be earned.
+
