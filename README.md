@@ -213,3 +213,17 @@ Data.ByteString.Char8
 Note: my implementation uses only List as the data structure.
 The execution time is so far beyond ok line, but some additional factor may be earned.
 
+By the way, why this link is not self-consistent?
+I mean, the title after constests in its url differs from the last arc086_a.
+
+## ABC 085 C - Otoshidama
+[abc085_c](https://atcoder.jp/contests/abc085/tasks/abc085_c)
+
+Double, or triple folded for-loops (still eager search)
+
+Initial attempt was using list comprehension to filter a correct combination.
+It basically the same as double-for-loops as in [https://qiita.com/drken/items/fd4e5e3630d0f5859067#第-8-問--abc-085-c---otoshidama-300-点](https://qiita.com/drken/items/fd4e5e3630d0f5859067#第-8-問--abc-085-c---otoshidama-300-点)
+
+Second attempt is much faster; first construct the ideal combination to pay Y-yen, maximumizing 10000-bills, then exchanging into smaller bill to reach the given N-bills.
+
+
