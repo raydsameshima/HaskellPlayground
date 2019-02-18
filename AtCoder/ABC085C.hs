@@ -3,7 +3,6 @@
 
 import qualified Data.ByteString.Char8 as C
 import           Data.Maybe ( fromJust )
-import qualified Data.Vector.Unboxed as U
 
 cReadLn :: IO Int
 cReadLn = fst . fromJust . C.readInt <$> C.getLine
@@ -42,5 +41,3 @@ otsdm n y
   where
     os = filter (\o -> y == gok o) $ otsdm' n y
     (a,b,c) = head os
-
-  
