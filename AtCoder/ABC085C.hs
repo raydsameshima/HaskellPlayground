@@ -2,7 +2,7 @@
 -}
 
 import qualified Data.ByteString.Char8 as C
-import           Data.Maybe ( fromJust )
+import           Data.Maybe ( fromJust, isNothing )
 
 cReadLn :: IO Int
 cReadLn = fst . fromJust . C.readInt <$> C.getLine
@@ -13,11 +13,41 @@ getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 main :: IO ()
 main = do
   [n,y] <- getParms
-  putStrLn $ otsdm n y
+  putStrLn $ f n y
 
-type Yen = Int
 type Mai = Int
+type Yen = Int
 type Pochi = (Int,Int,Int) -- #s of 10000,5000,1000 bills
+
+minPochi :: Yen -> Pochi
+minPochi y = (a,b,c)
+  where
+    (a,r) = y `quotRem` 10000
+    (b,s) = r `quotRem` 5000
+    c     = s `quot` 1000
+
+canPay :: Mai -> Yen -> Maybe Pochi
+canPay n y = h i
+  where
+    i@(a,b,c) = minPochi y
+
+    h :: Pochi -> Maybe Pochi
+    h p@(a,b,c)
+      | n == m = Just p
+      | n - m > 3 && b > 0 = h (a, b-1, c+5)
+      | n - m > 0 && a > 0 = h (a-1,b+2,c)
+      | otherwise = Nothing
+      where
+        m = a+b+c
+
+f n y
+  | isNothing p = "-1 -1 -1"
+  | otherwise   = show a ++ " " ++ show b ++ " " ++ show c
+  where
+    p = canPay n y
+    (a,b,c) = fromJust p
+
+
 
 otsdm'
   :: Mai -> Yen -> [Pochi]
