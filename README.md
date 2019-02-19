@@ -226,4 +226,8 @@ It basically the same as double-for-loops as in [https://qiita.com/drken/items/f
 
 Second attempt is much faster; first construct the ideal combination to pay Y-yen, maximumizing 10000-bills, then exchanging into smaller bill to reach the given N-bills.
 
+### Related problems
+[abc088_c](https://atcoder.jp/contests/abc088/tasks/abc088_c)
+Data.ByteString.Char8
 
+We do not need to find a solution, but to say the existance.
