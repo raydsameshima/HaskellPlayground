@@ -231,3 +231,16 @@ Second attempt is much faster; first construct the ideal combination to pay Y-ye
 Data.ByteString.Char8
 
 We do not need to find a solution, but to say the existance.
+
+[arc096_a](https://atcoder.jp/contests/arc096/tasks/arc096_a)
+Data.ByteString.Char8
+
+Simple comparison.
+
+[abc057_c](https://atcoder.jp/contests/abc057/tasks/abc057_c)
+Data.ByteString.Char8
+
+Prime factors.
+It requires factor 2 in execution time and memory usage.
+
+[
