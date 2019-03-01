@@ -243,4 +243,8 @@ Data.ByteString.Char8
 Prime factors.
 It requires factor 2 in execution time and memory usage.
 
-[
+[arc083_a](https://atcoder.jp/contests/abc074/tasks/arc083_a)
+Data.ByteString.Char8
+
+Need better implementation, say factor 3.
+Filter has to be done only once. 
