@@ -19,9 +19,10 @@ main = do
 type SW = Int -- SugarWater
 type S  = Int -- Sugar
 
-ratio :: (SW, S) -> Ratio Int
-ratio (a,b) = if a==0 then -1    -- emergency evacuation
-                      else b % a 
+ratio :: (SW, S) -> Maybe (Ratio Int)
+ratio (a,b) = if a == 0 
+                then Nothing 
+                else Just (b % a) 
 
 combinations :: [Int] -> [(SW,S)]
 combinations [a,b,c,d,_e,f] 
@@ -36,7 +37,7 @@ combinations [a,b,c,d,_e,f]
       , let fd = (f-w-c*nc) `div` d
       , nd <- [0 .. fd]
       , let s = c*nc + d*nd
---      , na + nb > 0
+      , na + nb > 0
 --      , nc + nd > 0
       ]
 
@@ -48,6 +49,7 @@ select as@[a,b,c,d,e,f] = h e ls l
     h :: Int -> [(SW,S)] -> (SW,S) -> (SW,S)
     h _ []     best     = best
     h e (m:ms) best
+      | rmax < ratio best = h e ms m
       | rmax == rm      = m
       | rmax <  rm      = h e ms best
       | ratio best < rm
