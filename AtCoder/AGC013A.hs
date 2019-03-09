@@ -34,5 +34,3 @@ f = h 0
       | i == j    = g s op is
       | i `op` j  = g s op is
       | otherwise = h (s+1) is
-   
-
