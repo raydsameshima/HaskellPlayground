@@ -20,9 +20,7 @@ main = do
   print $ solve' c k ts
   print $ length $ solve' c k ts
 
--- https://atcoder.jp/contests/agc011/submissions/3109211
-
-{-
+{-  -- https://atcoder.jp/contests/agc011/submissions/3109211
 solve :: Int -> Int -> [Int] -> [[Int]]
 solve _ _ [] = []
 solve c k xs@(x:_) = a : solve c k b
