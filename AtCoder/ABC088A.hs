@@ -16,21 +16,21 @@ if one can, otherwise
 
 -}
 
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
 main :: IO ()
 main = do
-  n <- readLn 
-  a <- readLn
---  let q = n `rem` 500
---  putStrLn $ if q <= a then "Yes" else "No"
-  putStrLn $ canPay' n a
+  n <- readInt
+  a <- readInt
+  putStrLn $ canPay n a
 
-canPay :: Int -> Int -> Bool
+canPay :: Int -> Int -> String
 canPay n a = let r = n `rem` 500 in
-  if r > a -- If the reminder is smaller than the amount one has, then one can pay.
-    then False
-    else True
+  if r > a 
+    then "No"
+    else "Yes" 
 
-canPay' :: Int -> Int -> String
-canPay' n a
-  | canPay n a = "Yes"
-  | otherwise  = "No"

@@ -47,6 +47,10 @@ main = do
 # GHC language extensions
 [A good start wll be here.](https://haskell.jp/blog/posts/2018/about-ghc-exts-1.html)
 
+http://fumieval.hatenablog.com/entry/2015/12/10/200630
+
+## strict flag
+
 ## BangPattern
 TBA
 
@@ -68,19 +72,21 @@ For non-negative integers, use rem.
 
 ### Related problems
 [abc064_a](https://atcoder.jp/contests/abc064/tasks/abc064_a)
+
 [abc088_a](https://atcoder.jp/contests/abc088/tasks/abc088_a)
+
 [abc082_a](https://atcoder.jp/contests/abc082/tasks/abc082_a)
 
 ### Note
-As a common technique, e.g., if we want to calculate the round up the mean of a,b::Int,
+As a common technique, e.g., if we want to calculate the round up the mean of `a,b :: Int`,
 
-```hs
+```haskell
   (a+b+1) `div` 2
 ```
 
 that is, we do not need to write like
 
-```hs
+```haskell
   kiriage a b
     | even (a+b) = (a+b)   `div` 2
     | otherwise  = (a+b+1) `div` 2 
