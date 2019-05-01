@@ -10,16 +10,24 @@ The output form must be either
 or
   Even
 .
-
 -}
+
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  [a,b] <- map read . words <$> getLine
-  putStrLn $ oddOrEven' a b
+  [a,b] <- readInts
+  putStrLn $ if isOddOrEven a b 
+               then "Odd"
+               else "Even"
 
-oddOrEven'
-  :: Int -> Int -> String
-oddOrEven' a b
-  | odd a && odd b = "Odd"
-  | otherwise      = "Even"
+isOddOrEven
+  :: Int -> Int -> Bool
+isOddOrEven a b = odd a && odd b 
