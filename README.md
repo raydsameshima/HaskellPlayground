@@ -1,49 +1,15 @@
 # HaskellPlayground
-Experiments of Haskell programming.
+Experiments of Haskell programming, especially AtCoder.
 
-AtCoder.
 See 
 [A good reference in Japanse](https://qiita.com/drken/items/fd4e5e3630d0f5859067#5-%E9%81%8E%E5%8E%BB%E5%95%8F%E7%B2%BE%E9%81%B8-10-%E5%95%8F)
 
 [AtCoder Beginners Selection](https://atcoder.jp/contests/abs)
 
+See, [totemo kawaii](https://myuon.github.io/posts/haskell-atcoder/).
+
 # IO
-## fixed number of inputs
-For the following type of inputs
-
-```
-a
-b c
-```
-
-use
-
-```hs
-main = do
-  a     <- readLn
-  [b,c] <- map read . words <$> getLine
-  ...
-```
-
-## non-fixed number of inputs
-If the input is 
-
-```hs
-n   -- the total number of the follwoing data
-d1  -- 1 st data
-...
-dn  -- n th data
-```
-
-use
-
-```hs
-import Control.Monad (replicateM)
-
-main = do
-  n  <- readLn
-  ds <- replicateM n readLn
-```
+String = [Char] is too slow.
 
 ## Data.ByteString.Char8
 See the discussion in 
@@ -51,31 +17,38 @@ See the discussion in
 
 Instead of using
 
-```hs
+```haskell
+
 main = do
   as <- map read . words <$> getLine
   ...
 
 ```
 
-we may use Data.ByteString.Char8:
+we must use Data.ByteString.Char8:
 
-```hs
+```haskell
 
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 
-cReadLn :: IO Int
-cReadLn = fst . fromJust . C.readInt <$> C.getLine
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
 
-getParms :: IO [Int]
-getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main = do
-  as <- getParms
+  as <- readInts
   ...
 
 ```
+
+# GHC language extensions
+[A good start wll be here.](https://haskell.jp/blog/posts/2018/about-ghc-exts-1.html)
+
+## BangPattern
+TBA
 
 # Usefull links
 ## Category Theory for Programmers
