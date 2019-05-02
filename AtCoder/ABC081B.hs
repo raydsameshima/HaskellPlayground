@@ -35,6 +35,6 @@ counter ns = helper ns 0
     helper :: [Int] -> Int -> Int
     helper ms k
       | all even ms = helper ms' (k+1)
-      | otherwise         = k
+      | otherwise   = k
       where
         ms' = map (`div` 2) ms
