@@ -14,11 +14,11 @@ The price is given by
 
 main :: IO ()
 main = do
-  s <- getLine
+  s <- getLine :: IO String
   print $ price s
 
 price
   :: String -> Int
 price s = 700 + 100*os
   where
-    os = length . filter (== 'o') $ s
+    os = length $ filter (== 'o') s

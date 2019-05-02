@@ -10,7 +10,7 @@ in such a way that
 
 main :: IO ()
 main = do
-  s <- getLine
+  s <- getLine :: IO String
   putStrLn $ shorten s
 
 shorten

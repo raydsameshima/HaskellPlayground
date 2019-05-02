@@ -14,8 +14,8 @@ import Data.List
 
 main :: IO ()
 main = do
-  s <- getLine
-  t <- getLine
+  s <- getLine :: IO String 
+  t <- getLine :: IO String
   putStrLn $ if s `isLargerThan` t 
                then "Yes"
                else "No"

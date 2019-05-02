@@ -4,7 +4,6 @@ Modefy yyyy/mm/dd format from
   2017/mm/dd
 to
   2018/mm/dd
-.
 
 -}
 

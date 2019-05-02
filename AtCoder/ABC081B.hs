@@ -16,10 +16,16 @@ True
 False
 -}
 
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+
 main :: IO ()
 main = do
-  _ <- getLine
-  as <- map read . words <$> getLine
+  _  <- getLine 
+  as <- readInts
   print $ counter as
 
 counter
@@ -28,8 +34,7 @@ counter ns = helper ns 0
   where
     helper :: [Int] -> Int -> Int
     helper ms k
-      | and $ map even ms = helper ms' (k+1)
+      | all even ms = helper ms' (k+1)
       | otherwise         = k
       where
         ms' = map (`div` 2) ms
-
