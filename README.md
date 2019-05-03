@@ -67,6 +67,7 @@ See, again
 [abc086_a](https://atcoder.jp/contests/abc086/tasks/abc086_a)
 
 Mod, or rem.
+
 For non-negative integers, use rem.
 (see [https://twitter.com/mod_poppo/status/1092144670526791680](https://twitter.com/mod_poppo/status/1092144670526791680))
 
@@ -120,7 +121,16 @@ Data.ByteString.Char8
 [abc113_b](https://atcoder.jp/contests/abc113/tasks/abc113_b)
 Data.ByteString.Char8
 
+We have the following O(n) (not O(2*n)) maxMin,
+
+```haskell
+maxMin :: [Int] -> (Int, Int)
+maxMin = (,) <$> maximum <*> minimum
+```
+
 [abc072_b](https://atcoder.jp/contests/abc072/tasks/abc072_b)
+It is interesting but the raw recursion is faster and cheaper. 
+
 
 [abc053_b](https://atcoder.jp/contests/abc053/tasks/abc053_b)
 Data.ByteString.Char8

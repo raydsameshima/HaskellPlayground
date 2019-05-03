@@ -14,8 +14,17 @@ of string, print the odd-indexd positions of s, where the index is
 -}
 
 main :: IO ()
-main = interact pickOdds -- non-prime performs well
-
-pickOdds
+-- main = interact $ pickOdds2
+main = do
+  s <- getLine
+  putStrLn $ pickOdds2 s
+ 
+pickOdds, pickOdds'
   :: [a] -> [a]
-pickOdds = map snd . filter fst . zip (cycle [True, False])
+pickOdds []       = []
+pickOdds [a]      = [a]
+pickOdds (a:_:bs) = a : pickOdds bs 
+ 
+pickOdds' = map snd . filter (odd . fst) . zip [1..]
+ 
+pickOdds2 = map snd . filter fst . zip (cycle [True, False])
