@@ -2,12 +2,19 @@
 
 -}
 
-import Control.Monad
-  ( replicateM )
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+import Control.Monad ( replicateM )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  n   <- readLn
+  n   <- readInt
   xys <- replicateM n readPair
   print $ farest xys
 
@@ -16,7 +23,7 @@ type Pair = (Int, Int)
 readPair
   :: IO Pair
 readPair = do
-  [x,y] <- map read . words <$> getLine
+  [x,y] <- readInts
   return (x,y)
 
 farest
