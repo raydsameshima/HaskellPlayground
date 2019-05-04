@@ -6,9 +6,15 @@ determine wether we can use exactly N dollars, buying 4 dollar cackes
 and 7 dollars doughnuts.
 -}
 
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
 main :: IO ()
 main = do
-  n <- readLn
+  n <- readInt
   putStrLn $ if f n then "No" else "Yes"
 
 f :: Int -> Bool
