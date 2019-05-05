@@ -11,9 +11,16 @@
 
 -}
 
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+import Data.Char ( digitToInt )
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+
 main :: IO ()
 main = do
-  [n,a,b] <- map read . words <$> getLine 
+  [n,a,b] <- readInts 
   print $ f n a b
 
 f :: Int -> Int -> Int -> Int
@@ -21,7 +28,8 @@ f n a b = sum [ m | m <- [1..n]
                   , a   <= g m
                   , g m <= b ]
   where
-    g = sum . int2lst
+--     g = sum . int2lst
+    g = sum . map digitToInt . (show :: Int -> String )
 
 int2lst
   :: Int -> [Int]
