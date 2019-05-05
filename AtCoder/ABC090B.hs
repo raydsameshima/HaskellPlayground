@@ -2,9 +2,15 @@
 
 -}
 
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+
 main :: IO ()
 main = do
-  [a,b] <- map read . words <$> getLine
+  [a,b] <- readInts 
   print $ numOfPlndrm a b
 
 numOfPlndrm

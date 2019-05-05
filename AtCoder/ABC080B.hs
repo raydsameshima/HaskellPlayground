@@ -1,13 +1,22 @@
 {- ABC080B.hs 
 
+Harshad number.
+Given
+  n
+determine wether its sum of digits is Harshad or not.
+
 -}
 
-import Data.Char
-  ( digitToInt )
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+import Data.Char ( digitToInt )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
 
 main :: IO ()
 main = do
-  n <- readLn
+  n <- readInt
   putStrLn $ if isHarshad n then "Yes" else "No"
 
 isHarshad
