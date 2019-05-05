@@ -1,4 +1,4 @@
-{- ABC025B.hs
+{- ABC025A.hs
 
 Given
   N (= A+B)
@@ -8,10 +8,15 @@ the digits of A plus the sum of the digits of B.
 -}
 
 import qualified Data.Vector.Unboxed as V
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
 
 main :: IO ()
 main = do
-  n <- readLn
+  n <- readInt
   print $ g n
 
 f :: Int -> V.Vector (Int,Int)
