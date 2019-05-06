@@ -8,11 +8,19 @@ Find Alice's score minus Bob's score.
 -}
 
 import Data.List ( sortBy )
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  _ <- getLine
-  as <- map read . words <$> getLine
+  _  <- getLine
+  as <- readInts 
   print . point . alisAndBob . sort' $ as
 
 sort' 
@@ -24,8 +32,8 @@ alisAndBob
 alisAndBob ns = helper ns ([],[])
   where
     helper :: Ord a => [a] -> ([a],[a]) -> ([a],[a])
-    helper [] ab = ab
-    helper [a] ab@(as,bs) = (a:as, bs)
+    helper []       ab         = ab
+    helper [a]      ab@(as,bs) = (a:as, bs)
     helper (a:b:cs) ab@(as,bs) = helper cs (a:as, b:bs)
 
 point
