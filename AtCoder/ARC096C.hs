@@ -4,12 +4,12 @@
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 
-getParms :: IO [Int]
-getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  [a,b,c,x,y] <- getParms
+  [a,b,c,x,y] <- readInts
   print $ f' a b c x y
 
 f :: Int -> Int -> Int -> Int -> Int -> Int

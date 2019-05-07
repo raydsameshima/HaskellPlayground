@@ -2,20 +2,22 @@
 
 -}
 
+import Data.List (reverse)
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
-import Data.List (reverse)
 
-cReadLn :: IO Int
-cReadLn = fst . fromJust . C.readInt <$> C.getLine
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
 
 main :: IO ()
 main = do
-  n <- cReadLn
+  n <- readInt
   print $ f n
 
+f :: Int -> Int
 f = length . show . snd . minPair
 
+factors :: Int -> [Int]
 factors n = filter (n `divides`) $ factors' n
 
 factors' :: Int -> [Int]
@@ -34,3 +36,4 @@ minPair n = (a,b)
               else (p,q)
     (p:_) = factors n
     q     = n `div` p
+

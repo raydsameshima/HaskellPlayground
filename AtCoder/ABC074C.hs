@@ -2,17 +2,20 @@
 
 -}
 
-import qualified Data.ByteString.Char8 as C
-import Data.Maybe (fromJust)
 import Data.Ratio
 import Data.List 
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
 
-getParms :: IO [Int]
-getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  as <- getParms
+  as <- readInts
   let (sw,s) = select as
   putStrLn $ show sw ++ " " ++ show s
 

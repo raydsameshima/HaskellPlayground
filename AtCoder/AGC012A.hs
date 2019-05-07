@@ -22,13 +22,16 @@ import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 import Data.List ( sortBy )
 
-getParm :: IO [Int]
-getParm = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  n <- readLn :: IO Int
-  ass <- getParm
+  n   <- readInt
+  ass <- readInts
   print $ f n ass
 
 sort' :: [Int] -> [Int]

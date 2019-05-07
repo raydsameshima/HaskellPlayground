@@ -2,21 +2,21 @@
 
 -}
 
-import qualified Data.ByteString.Char8 as C
-import Data.Maybe (fromJust)
 import Data.List (transpose)
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
 
-cReadLn :: IO Int
-cReadLn = fst . fromJust . C.readInt <$> C.getLine
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
 
-getParms :: IO [Int]
-getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  c1@[c11,c12,c13] <- getParms
-  c2@[c21,c22,c23] <- getParms
-  c3@[c31,c32,c33] <- getParms
+  c1@[c11,c12,c13] <- readInts
+  c2@[c21,c22,c23] <- readInts
+  c3@[c31,c32,c33] <- readInts
   putStrLn $ if f c1 c2 c3 
                then "Yes"
                else "No"
