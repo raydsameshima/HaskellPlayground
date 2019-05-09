@@ -1,23 +1,22 @@
 {- ABC061B.hs
+
+There could be an island, i.e., a no-path-path-connected city.
+To avoid such a case, we first add [1..n] as the label for the cities.
+
 -}
 
-import Control.Monad
-  ( replicateM )
-import Data.List
-  ( sort, group )
+import Control.Monad ( replicateM )
+import Data.List ( sort, group )
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 
-cReadLn :: IO Int
-cReadLn = fst . fromJust . C.readInt <$> C.getLine
-
-getParms :: IO [Int]
-getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  [n,m] <- getParms
-  abs   <- replicateM m getParms 
+  [n,m] <- readInts
+  abs   <- replicateM m readInts
   mapM_ print $ honsu n abs
 
 honsu
@@ -25,4 +24,5 @@ honsu
 honsu n as = map length' . group . sort . concat $ ([1..n] : as)
   where
     length' l = length l - 1
+
 
