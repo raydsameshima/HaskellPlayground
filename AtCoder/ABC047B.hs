@@ -2,20 +2,20 @@
 
 -}
 
+import Control.Monad (replicateM)
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
-import Control.Monad (replicateM)
 
-cReadLn :: IO Int
-cReadLn = fst . fromJust . C.readInt <$> C.getLine
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
 
-getParms :: IO [Int]
-getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  [w,h,n] <- getParms              :: IO [Int]
-  xya     <- replicateM n getParms :: IO [[Int]]
+  [w,h,n] <- readInts
+  xya     <- replicateM n readInts
   print $ uncurry area $ f w h xya
 
 type Range = (Int,Int)
@@ -38,5 +38,3 @@ area :: Range -> Range -> Int
 area (xi,xf) (yi,yf) 
   | xi < xf && yi < yf = (xf-xi)*(yf-yi)
   | otherwise          = 0
-
- 

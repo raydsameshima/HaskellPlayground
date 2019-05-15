@@ -1,19 +1,26 @@
 {- ABC091B.hs
 
+check
+https://atcoder.jp/contests/abc091/submissions/2219255
+
 -}
 
-import qualified Data.ByteString.Char8 as C
-import Data.Maybe ( fromJust )
 import Control.Monad (replicateM)
 import Data.List (group, sort, length, maximum)
 
-cReadLn :: IO Int
-cReadLn = fst . fromJust . C.readInt <$> C.getLine
+import qualified Data.ByteString.Char8 as C
+import Data.Maybe ( fromJust )
+
+readInt :: IO Int
+readInt = fst . fromJust . C.readInt <$> C.getLine
+
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main = do
-  n <- cReadLn
+  n  <- readInt
   ss <- replicateM n C.getLine
-  m <- cReadLn
+  m  <- readInt
   ts <- replicateM m C.getLine
   print $ maximum . uncurry diff $ f ss ts
 

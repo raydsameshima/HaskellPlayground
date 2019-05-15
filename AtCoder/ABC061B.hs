@@ -24,5 +24,3 @@ honsu
 honsu n as = map length' . group . sort . concat $ ([1..n] : as)
   where
     length' l = length l - 1
-
-
