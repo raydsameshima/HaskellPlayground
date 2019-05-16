@@ -1,5 +1,7 @@
 {- ABC071B.hs
-
+Given
+  s
+of a string, find the "smallest" lowercase that does not occur in s.
 -}
 
 import qualified Data.ByteString.Char8 as B
@@ -12,8 +14,8 @@ main = do
 none'
   :: B.ByteString -> Maybe Char
 none' x 
-  = if B.null fx then Nothing
-                 else Just $ B.head fx
+  | B.null fx = Nothing
+  | otherwise = Just $ B.head fx
   where
     fx = B.dropWhile (`B.elem` x) $ B.pack ['a' .. 'z']
 
