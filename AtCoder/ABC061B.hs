@@ -1,4 +1,13 @@
 {- ABC061B.hs
+Given
+  n m
+  a1 b1
+  ...
+  am bm
+of n-cities, m-roads, find the number of roads connected to each city,
+where 
+  a1 b1
+means there is one road between two cities.
 
 There could be an island, i.e., a no-path-path-connected city.
 To avoid such a case, we first add [1..n] as the label for the cities.
