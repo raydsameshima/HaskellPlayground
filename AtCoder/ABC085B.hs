@@ -1,5 +1,11 @@
 {- ABC085B.hs
-
+Given
+  n
+  d1
+  ...
+  dn
+of integers ([1 .. 100]), print the maximum length of 
+a strictly descending sequence.
 -}
 
 import Data.List (nub, sort)
