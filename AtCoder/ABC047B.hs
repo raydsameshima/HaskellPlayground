@@ -26,10 +26,10 @@ initialize w h = ((0, w), (0, h))
 
 cut :: (Range, Range) -> [Int] -> (Range, Range) 
 cut (xx@(xi,xf),yy@(yi,yf)) [x,y,a]
-  | a == 1 = ((max x xi, xf), yy)
-  | a == 2 = ((xi, min x xf), yy)
-  | a == 3 = (xx, (max y yi, yf))
-  | a == 4 = (xx, (yi, min y yf))
+  | a == 1 = ((max x xi, xf),       yy)
+  | a == 2 = ((xi,       min x xf), yy)
+  | a == 3 = (xx,                   (max y yi, yf))
+  | a == 4 = (xx,                   (yi,       min y yf))
 
 f :: Int -> Int -> [[Int]] -> (Range, Range)
 f w h = foldl cut (initialize w h) 

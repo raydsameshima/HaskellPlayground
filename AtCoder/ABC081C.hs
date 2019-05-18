@@ -2,7 +2,7 @@
 
 -}
 
-import Data.List
+import Data.List ( group, sort, length, sortOn )
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 
@@ -24,7 +24,7 @@ f n k as
     l    = length as'
     as'' = map length $ sortOn length as'
 
-    g :: [Int] -> Int -> Int -> Int
-    g _      0 x = x
-    g (b:bs) k x = g bs (k-1) (x + b)
+g :: [Int] -> Int -> Int -> Int
+g _      0 x = x
+g (b:bs) k x = g bs (k-1) (x + b)
 

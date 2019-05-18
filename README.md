@@ -220,6 +220,7 @@ Second attempt is much faster; first construct the ideal combination to pay Y-ye
 Data.ByteString.Char8
 
 We do not need to find a solution, but to say the existance.
+Probably, it's a good time to study data structures.
 
 [arc096_a](https://atcoder.jp/contests/arc096/tasks/arc096_a)
 Data.ByteString.Char8

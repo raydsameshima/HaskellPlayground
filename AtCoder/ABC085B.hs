@@ -29,4 +29,3 @@ main = do
 mochi
   :: [Int] -> Int
 mochi = length . nub 
-
