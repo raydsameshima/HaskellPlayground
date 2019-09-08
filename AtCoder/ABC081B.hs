@@ -26,15 +26,13 @@ main :: IO ()
 main = do
   _  <- getLine 
   as <- readInts
-  print $ counter as
+  print $ minimum $ map f as 
 
-counter
-  :: [Int] -> Int
-counter ns = helper ns 0
-  where
-    helper :: [Int] -> Int -> Int
-    helper ms k
-      | all even ms = helper ms' (k+1)
-      | otherwise   = k
-      where
-        ms' = map (`div` 2) ms
+f :: Int -> Int
+f = g 0
+ 
+g acc n
+  | even n = g (acc+1) (n `div` 2)
+  | odd  n = acc
+
+
