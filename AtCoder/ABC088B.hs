@@ -21,13 +21,13 @@ main :: IO ()
 main = do
   _  <- getLine
   as <- readInts 
-  print . point . alisAndBob . sort' $ as
+  print . point . alisAndBob' . sort' $ as
 
 sort' 
   :: Ord a => [a] -> [a]
 sort' = sortBy (flip compare)
 
-alisAndBob 
+alisAndBob, alisAndBob'
   :: Ord a => [a] -> ([a],[a])
 alisAndBob ns = helper ns ([],[])
   where
@@ -41,3 +41,9 @@ point
 point (as,bs) = sum as - sum bs
 
 
+alisAndBob' ns = (alice, bob)
+  where
+    helper f = map snd . filter f
+    ns' = zip (cycle [True, False]) ns
+    alice = helper fst         ns'
+    bob   = helper (not . fst) ns'

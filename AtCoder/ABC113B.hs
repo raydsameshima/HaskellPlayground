@@ -31,9 +31,9 @@ getParm = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 f :: Int -> Int -> Int -> Double
 f t a h = abs( (t'-h'*0.006) - a' )
   where
-    t' = toEnum t
-    h' = toEnum h
-    a' = toEnum a
+    t' = fromIntegral t -- toEnum t
+    h' = fromIntegral h -- toEnum h
+    a' = fromIntegral a -- toEnum a
 
 findIndex4Minimum :: [Double] -> Int
 findIndex4Minimum ws = snd . minimumBy c . zip ws $ [1..]
