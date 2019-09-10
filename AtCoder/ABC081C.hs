@@ -1,6 +1,4 @@
-{- ABC081C.hs
-
--}
+{- ABC081C.hs -}
 
 import Data.List ( group, sort, length, sortOn )
 import qualified Data.ByteString.Char8 as C
@@ -26,5 +24,4 @@ f n k as
 
 g :: [Int] -> Int -> Int -> Int
 g _      0 x = x
-g (b:bs) k x = g bs (k-1) (x + b)
-
+g (b:bs) k x = g bs (k-1) (x + b) 
