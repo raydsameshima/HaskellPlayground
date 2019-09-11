@@ -1,11 +1,22 @@
 {- ABC091B.hs
 
+Given
+  n   -- number of red cards
+  s1  -- string of a word
+  ..
+  sn
+  m   -- number of blue cards
+  t1
+  ..
+  tm
+compute the maximum gain (blue-red) by choosing a word.
+
 -}
 
-import Control.Monad (replicateM)
-import Data.List (group, sort, length, maximum, (\\))
-
 import qualified Data.ByteString.Char8 as C
+
+import Control.Monad ( replicateM )
+import Data.List ( group, sort, length, maximum, (\\) )
 import Data.Maybe ( fromJust )
 
 readInt :: IO Int
