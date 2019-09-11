@@ -30,7 +30,7 @@ cut (xx@(xi,xf), yy@(yi,yf)) [x,y,a]
   | a == 4 = (xx,                   (yi,       min y yf))
 
 f :: Int -> Int -> [[Int]] -> (Range, Range)
-f w h = foldl cut (initialize w h) 
+f w = foldl cut . initialize w 
 
 area :: Range -> Range -> Int
 area (xi,xf) (yi,yf) 

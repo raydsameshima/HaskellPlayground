@@ -22,7 +22,7 @@ readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  n <- readInt
+  n  <- readInt
   ds <- replicateM n readInt
   print $ mochi ds
 

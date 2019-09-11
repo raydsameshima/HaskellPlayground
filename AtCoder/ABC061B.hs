@@ -9,7 +9,7 @@ where
   a1 b1
 means there is one road between two cities.
 
-There could be an island, i.e., a no-path-path-connected city.
+There could be an isolated island, i.e., a no-path-connected city.
 To avoid such a case, we first add [1..n] as the label for the cities.
 
 -}
@@ -22,7 +22,7 @@ import Data.Maybe ( fromJust )
 readInts :: IO [Int]
 readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
-main :: IO ()
+-- main :: IO ()
 main = do
   [n,m] <- readInts
   abs   <- replicateM m readInts
@@ -33,3 +33,4 @@ honsu
 honsu n as = map length' . group . sort . concat $ ([1..n] : as)
   where
     length' l = length l - 1
+
