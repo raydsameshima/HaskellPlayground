@@ -1,11 +1,9 @@
-{- ABC074C.hs
-
--}
+{- ABC074C.hs -}
 
 import Data.Ratio
 import Data.List 
 import qualified Data.ByteString.Char8 as C
-import Data.Maybe ( fromJust )
+import Data.Maybe (fromJust)
 
 readInt :: IO Int
 readInt = fst . fromJust . C.readInt <$> C.getLine

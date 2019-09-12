@@ -1,25 +1,21 @@
-{- ABC085C.hs
--}
+{- ABC085C.hs -}
 
 import qualified Data.ByteString.Char8 as C
 import           Data.Maybe ( fromJust, isNothing )
 
-cReadLn :: IO Int
-cReadLn = fst . fromJust . C.readInt <$> C.getLine
-
-getParms :: IO [Int]
-getParms = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
+readInts :: IO [Int]
+readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
 
 main :: IO ()
 main = do
-  [n,y] <- getParms
+  [n,y] <- readInts
   putStrLn $ f n y
 
 type Mai = Int
 type Yen = Int
 type Pochi = (Int,Int,Int) -- #s of 10000,5000,1000 bills
 
-minPochi :: Yen -> Pochi
+minPochi :: Yen -> Pochi -- returns the minimum number of bills
 minPochi y = (a,b,c)
   where
     (a,r) = y `quotRem` 10000
@@ -29,42 +25,37 @@ minPochi y = (a,b,c)
 canPay :: Mai -> Yen -> Maybe Pochi
 canPay n y = h i
   where
-    i@(a,b,c) = minPochi y
+    i = minPochi y
 
     h :: Pochi -> Maybe Pochi
     h p@(a,b,c)
-      | n == m = Just p
-      | n - m > 3 && b > 0 = h (a, b-1, c+5)
-      | n - m > 0 && a > 0 = h (a-1,b+2,c)
-      | otherwise = Nothing
+      | m == 0             = Just p
+      | m > 3 && b > 0 = h (a,  b-1,c+5) -- 5000 =5*1000
+      | m > 0 && a > 0 = h (a-1,b+2,c)   -- 10000=2*5000
+      | otherwise          = Nothing
       where
-        m = a+b+c
+        m = n-(a+b+c)
 
+f :: Mai -> Yen -> String
 f n y
   | isNothing p = "-1 -1 -1"
   | otherwise   = show a ++ " " ++ show b ++ " " ++ show c
   where
     p = canPay n y
-    (a,b,c) = fromJust p
+    Just (a,b,c) = p
 
-
-
-otsdm'
-  :: Mai -> Yen -> [Pochi]
+otsdm' :: Mai -> Yen -> [Pochi]
 otsdm' n y
-  = [(a,b,n-a-b) 
-      | let a0 = y `quot` 10000
-      , a <- [0 .. a0]
-      , let b0 = (y - 10000*a) `quot` 5000
-      , b <- [0 .. b0]
-      ]
+  = [(a,b,n-a-b) -- double loop
+    | let a0 = y `quot` 10000
+    , a <- [0 .. a0]
+    , let b0 = (y - 10000*a) `quot` 5000
+    , b <- [0 .. b0]]
 
-gok
-  :: Pochi -> Yen
+gok :: Pochi -> Yen
 gok (a,b,c) = 10000*a +5000*b + 1000*c 
 
-otsdm
-  :: Mai -> Yen -> String
+otsdm :: Mai -> Yen -> String
 otsdm n y
   | null os   = "-1 -1 -1"
   | otherwise = show a ++ " " ++ show b ++ " " ++ show c

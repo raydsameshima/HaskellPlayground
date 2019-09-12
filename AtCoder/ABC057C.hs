@@ -1,10 +1,8 @@
-{- ABC057C.hs
-
--}
+{- ABC057C.hs -}
 
 import Data.List (reverse)
 import qualified Data.ByteString.Char8 as C
-import Data.Maybe ( fromJust )
+import Data.Maybe (fromJust)
 
 readInt :: IO Int
 readInt = fst . fromJust . C.readInt <$> C.getLine
@@ -18,7 +16,7 @@ f :: Int -> Int
 f = length . show . snd . minPair
 
 factors :: Int -> [Int]
-factors n = filter (n `divides`) $ factors' n
+factors n = filter (divides n) $ factors' n
 
 factors' :: Int -> [Int]
 factors' n = [n', n'-1 .. 1]
