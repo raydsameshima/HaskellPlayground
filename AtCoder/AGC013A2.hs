@@ -1,24 +1,28 @@
-{- AGC013A.hs -}
+{- AGC013A2.hs -}
 
 import qualified Data.ByteString.Char8 as C
 import Data.Maybe ( fromJust )
 import Data.List
 
+import qualified Data.Vector.Unboxed as VU
+
+
+-- https://myuon.github.io/posts/haskell-atcoder/
 
 readInt :: IO Int
 readInt = fst . fromJust . C.readInt <$> C.getLine
 
-readInts :: IO [Int]
-readInts = map (fst . fromJust . C.readInt) . C.words <$> C.getLine
-
 main :: IO ()
 main = do
-  _n <- readInt
-  as <- readInts
-  print $ f as 
+  n  <- readInt 
+  as <- VU.unfoldrN n C.readInt <$> C.getLine
+  print $ as 
 
-f :: [Int] -> Int
-f = h 0
+
+f :: VU.Vector Int -> Int
+f = VU.sum
+
+{-
 
 h :: Int -> [Int] -> Int
 h s []  = s+1
@@ -35,3 +39,5 @@ g s op (i:is@(j:_))
   | i == j    = g s op is
   | i `op` j  = g s op is
   | otherwise = h (s+1) is
+
+-}

@@ -6,17 +6,23 @@ main :: IO ()
 main = do
   s <- C.getLine
   let r = C.reverse s
-  let b = isIn $ C.unpack r
-  if b then putStrLn "YES"
-       else putStrLn "NO"
+  if isIn' r
+    then putStrLn "YES"
+    else putStrLn "NO"
 
-isIn
-  :: String -> Bool
-isIn s = isIn' s False
+rDream, rDreamer, rErase, rEraser :: C.ByteString
+rDream   = C.reverse . C.pack $ "dream"
+rDreamer = C.reverse . C.pack $ "dreamer"
+rErase   = C.reverse . C.pack $ "erase"
+rEraser  = C.reverse . C.pack $ "eraser"
+
+isIn' :: C.ByteString -> Bool
+isIn' s
+  | C.null s = True
+  | rDreamer `C.isPrefixOf` s = helper rDreamer s
+  | rDream   `C.isPrefixOf` s = helper rDream   s
+  | rEraser  `C.isPrefixOf` s = helper rEraser  s
+  | rErase   `C.isPrefixOf` s = helper rErase   s
+  | otherwise = False
   where
-    isIn' ""                               b = b 
-    isIn' ('r':'e':'m':'a':'e':'r':'d':ss) _ = isIn' ss True 
-    isIn'         ('m':'a':'e':'r':'d':ss) _ = isIn' ss True 
-    isIn'     ('r':'e':'s':'a':'r':'e':ss) _ = isIn' ss True
-    isIn'         ('e':'s':'a':'r':'e':ss) _ = isIn' ss True
-    isIn' _                                _ = False
+    helper rS = isIn' . C.drop (C.length rS) 
